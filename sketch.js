@@ -26,8 +26,9 @@ function preload()
 function setup()
 {
     createCanvas(800, 600);
-
-    button1 = createSprite(600,550,20,20);
+    button1= createButton("Jump");
+    button1.position(700,500);
+    
     ground = createSprite(400, 590, 1600, 20);
     //ground.debug = true;
 
@@ -48,7 +49,9 @@ function draw()
     textSize(20);
     fill("red");
     text(score, 700, 70);
-    button1.mousePressedOver()
+    button1.mousePressed(()=>{
+        runner.velocityY = -15;
+    });
     runner.collide(ground);
     runner.collide(upperGroundGrp);
     runner.collide(tallestGroundGrp)
